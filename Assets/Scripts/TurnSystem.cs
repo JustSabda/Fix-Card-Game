@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TurnSystem : MonoBehaviour
 {
-    public bool isYourTurn;
+    public static bool isYourTurn;
     public int yourTurn;
     public int yourOponentTurn;
     public Text turnText;
@@ -15,6 +15,7 @@ public class TurnSystem : MonoBehaviour
     public Text manaText;
 
     public static bool startTurn;
+    public static int DrawCount;
 
     // Start is called before the first frame update
     void Start()

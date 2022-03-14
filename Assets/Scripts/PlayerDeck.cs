@@ -65,8 +65,9 @@ public class PlayerDeck : MonoBehaviour
         }
         if (TurnSystem.startTurn == true)
         {
-            StartCoroutine(Draw(1));
+            StartCoroutine(Draw(TurnSystem.DrawCount));
             TurnSystem.startTurn = false;
+            TurnSystem.DrawCount = 0;
         }
     }
 

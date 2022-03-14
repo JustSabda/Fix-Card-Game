@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class DropZone : MonoBehaviour, IPointerEnterHandler , IPointerExitHandler ,IDropHandler
 {
+    
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (eventData.pointerDrag == null) return;
@@ -34,6 +35,7 @@ public class DropZone : MonoBehaviour, IPointerEnterHandler , IPointerExitHandle
         if(d != null)
         {
             d.parentToReturnTo = this.transform;
+            
         }
     }
     // Start is called before the first frame update
