@@ -17,13 +17,14 @@ public class Card
     public int add_CurrentMana;
 
     public int healBase;
+    public int move;
 
     public Card()
     {
 
     }
 
-    public Card(int Id ,string CardName, int Cost, int Power, string CardDescription, Sprite ThisImage ,int Draw_Card , int Add_CurrentMana , int HealBase)
+    public Card(int Id ,string CardName, int Cost, int Power, string CardDescription, Sprite ThisImage ,int Draw_Card , int Add_CurrentMana , int HealBase , int Move)
     {
         id = Id;
         cardName = CardName;
@@ -34,5 +35,6 @@ public class Card
         draw_Card = Draw_Card;
         add_CurrentMana = Add_CurrentMana;
         healBase = HealBase;
+        move = Move;
     }
 }

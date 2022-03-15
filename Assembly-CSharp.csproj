@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\TurnSystem.cs" />
     <Compile Include="Assets\Scripts\ThisCard.cs" />
     <Compile Include="Assets\Scripts\Draggable.cs" />
+    <Compile Include="Assets\Scripts\MouseOver.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

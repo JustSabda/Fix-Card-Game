@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Clone
   - Deck
+  - Zone
   layers:
   - Default
   - TransparentFX
