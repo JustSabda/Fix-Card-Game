@@ -79,6 +79,8 @@ public class ThisCard : MonoBehaviour
 
     public int position;
 
+    public GameObject[] Zone;
+
     void Start()
     {
         CardBackScript = GetComponent<CardBack>();
@@ -102,6 +104,8 @@ public class ThisCard : MonoBehaviour
             CardVisual.SetActive(true);
             IkonVisual.SetActive(false);
         }
+
+        Zone = GameObject.FindGameObjectsWithTag("Zone");
     }
 
     // Update is called once per frame
@@ -182,7 +186,7 @@ public class ThisCard : MonoBehaviour
             battleZone7 = GameObject.Find("Zone6");
             battleZone8 = GameObject.Find("Zone7");
 
-            if (summoned == false && (this.transform.parent == battleZone.transform|| this.transform.parent == battleZone2.transform || this.transform.parent == battleZone3.transform || this.transform.parent == battleZone4.transform || this.transform.parent == battleZone5.transform || this.transform.parent == battleZone6.transform || this.transform.parent == battleZone7.transform || this.transform.parent == battleZone8.transform))
+            if (summoned == false && (this.transform.parent == battleZone.transform|| this.transform.parent == battleZone2.transform || this.transform.parent == battleZone3.transform || this.transform.parent == battleZone4.transform || this.transform.parent == battleZone5.transform || this.transform.parent == battleZone6.transform|| this.transform.parent == battleZone7.transform || this.transform.parent == battleZone8.transform))
             {
                 Summon();
             }

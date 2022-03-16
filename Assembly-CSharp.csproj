@@ -61,14 +61,16 @@
     <Compile Include="Assets\Scripts\CardBackPrefabs.cs" />
     <Compile Include="Assets\Scripts\PlayerDeck.cs" />
     <Compile Include="Assets\Scripts\DropZone.cs" />
+    <Compile Include="Assets\Scripts\TestScript.cs" />
     <Compile Include="Assets\Scripts\Card.cs" />
+    <Compile Include="Assets\Scripts\MouseOver.cs" />
     <Compile Include="Assets\Scripts\CardToHand.cs" />
     <Compile Include="Assets\Scripts\EnemyHP.cs" />
     <Compile Include="Assets\Scripts\CardDataBase.cs" />
     <Compile Include="Assets\Scripts\TurnSystem.cs" />
     <Compile Include="Assets\Scripts\ThisCard.cs" />
     <Compile Include="Assets\Scripts\Draggable.cs" />
-    <Compile Include="Assets\Scripts\MouseOver.cs" />
+    <Compile Include="Assets\Scripts\DTP AJA.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
