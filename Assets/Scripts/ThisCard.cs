@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class ThisCard : MonoBehaviour
 {
+    public static ThisCard Instance;
+
     public List<Card> thisCard = new List<Card>();
     public int thisId;
 
@@ -81,6 +83,10 @@ public class ThisCard : MonoBehaviour
 
     public GameObject[] Zone;
 
+    void Awake()
+    {
+        Instance = this;
+    }
     void Start()
     {
         CardBackScript = GetComponent<CardBack>();
@@ -142,7 +148,7 @@ public class ThisCard : MonoBehaviour
 
         CardBackScript.UpdateCard(cardBack);
 
-        if(this.tag == "Clone")
+        if(this.tag == "Untagged")
         {
             thisCard[0] = PlayerDeck.staticDeck[numberOfCardsInDeck - 1];
             numberOfCardsInDeck -= 1;
@@ -153,62 +159,76 @@ public class ThisCard : MonoBehaviour
                 PlayerDeck.deckSize = 14;
             }
             cardBack = false;
-            this.tag = "Untagged";
+            this.tag = "CardHand";
         }
-        if (this.tag != "Deck")
-        {
-            if (TurnSystem.currentMana >= cost && summoned == false)
-            {
-                canBeSummon = true;
-            }
-            else
-            {
-                canBeSummon = false;
-            }
 
-            if (canBeSummon == true)
+        //Summoning
+        if (GameManager.Instance.State == GameState.PlayerTurn)
+        {
+            if (this.tag != "Deck")
             {
-                gameObject.GetComponent<Draggable>().enabled = true;
-                skinCare.SetActive(true);
+                if (TurnSystem.currentMana >= cost && summoned == false)
+                {
+                    canBeSummon = true;
+                }
+                else
+                {
+                    canBeSummon = false;
+                }
+
+                if (canBeSummon == true)
+                {
+                    gameObject.GetComponent<Draggable>().enabled = true;
+                    skinCare.SetActive(true);
+                }
+                else
+                {
+                    gameObject.GetComponent<Draggable>().enabled = false;
+                    skinCare.SetActive(false);
+                }
+
+                battleZone = GameObject.Find("Zone");
+                battleZone2 = GameObject.Find("Zone1");
+                battleZone3 = GameObject.Find("Zone2");
+                battleZone4 = GameObject.Find("Zone3");
+                battleZone5 = GameObject.Find("Zone4");
+                battleZone6 = GameObject.Find("Zone5");
+                battleZone7 = GameObject.Find("Zone6");
+                battleZone8 = GameObject.Find("Zone7");
+
+                /*if (summoned == false && (this.transform.parent == battleZone.transform|| this.transform.parent == battleZone2.transform || this.transform.parent == battleZone3.transform || this.transform.parent == battleZone4.transform || this.transform.parent == battleZone5.transform || this.transform.parent == battleZone6.transform|| this.transform.parent == battleZone7.transform || this.transform.parent == battleZone8.transform))
+                {
+                    Summon();
+                }
+                if(this.transform.parent == battleZone.transform)
+                {
+                    position = 1;
+                }
+                if(this.transform.parent == battleZone2.transform)
+                {
+                    position = 2;
+                }*/
+                if (canAttack == true)
+                {
+                    attackBorder.SetActive(true);
+                }
+                else
+                {
+                    attackBorder.SetActive(false);
+                }
             }
-            else
+        }
+        if (GameManager.Instance.State != GameState.PlayerTurn)
+        {
+            if (this.tag != "Deck")
             {
-                gameObject.GetComponent<Draggable>().enabled = false;
                 skinCare.SetActive(false);
             }
-
-            battleZone = GameObject.Find("Zone");
-            battleZone2 = GameObject.Find("Zone1");
-            battleZone3 = GameObject.Find("Zone2");
-            battleZone4 = GameObject.Find("Zone3");
-            battleZone5 = GameObject.Find("Zone4");
-            battleZone6 = GameObject.Find("Zone5");
-            battleZone7 = GameObject.Find("Zone6");
-            battleZone8 = GameObject.Find("Zone7");
-
-            if (summoned == false && (this.transform.parent == battleZone.transform|| this.transform.parent == battleZone2.transform || this.transform.parent == battleZone3.transform || this.transform.parent == battleZone4.transform || this.transform.parent == battleZone5.transform || this.transform.parent == battleZone6.transform|| this.transform.parent == battleZone7.transform || this.transform.parent == battleZone8.transform))
-            {
-                Summon();
-            }
-            if(this.transform.parent == battleZone.transform)
-            {
-                position = 1;
-            }
-            if(this.transform.parent == battleZone2.transform)
-            {
-                position = 2;
-            }
-            if (canAttack == true)
-            {
-                attackBorder.SetActive(true);
-            }
-            else
-            {
-                attackBorder.SetActive(false);
-            }
+            
         }
+        
 
-
+        //battle system
         if (TurnSystem.isYourTurn == false && summoned == true)
         {
             summoningSickness = false;
@@ -288,6 +308,8 @@ public class ThisCard : MonoBehaviour
         }
     }
 
+
+    //Additional Battle System
     public void UnTargetEnemy()
     {
         staticTargetEnemy = false;

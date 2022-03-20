@@ -516,15 +516,52 @@ MonoBehaviour:
     power: 0
     cardDescription: 
     thisImage: {fileID: 0}
+    draw_Card: 0
+    add_CurrentMana: 0
+    healBase: 0
+    move: 0
   thisId: 2
   id: 0
   cardName: 
   cost: 0
   power: 0
   cardDescription: 
-  thisSprite: {fileID: 0}
+  thisSpriteCard: {fileID: 0}
   thatImage: {fileID: 7274085188299223656}
+  thisIkonCard: {fileID: 0}
+  thatIcon: {fileID: 0}
+  move: 0
   cardBack: 0
+  Hand: {fileID: 0}
+  numberOfCardsInDeck: 0
+  canBeSummon: 0
+  summoned: 0
+  battleZone: {fileID: 0}
+  battleZone2: {fileID: 0}
+  battleZone3: {fileID: 0}
+  battleZone4: {fileID: 0}
+  battleZone5: {fileID: 0}
+  battleZone6: {fileID: 0}
+  battleZone7: {fileID: 0}
+  battleZone8: {fileID: 0}
+  skinCare: {fileID: 0}
+  draw_cards: 0
+  add_CurrentMana: 0
+  Target: {fileID: 0}
+  Enemy: {fileID: 0}
+  attackBorder: {fileID: 0}
+  summoningSickness: 0
+  cantAttack: 0
+  canAttack: 0
+  targeting: 0
+  targetingEnemy: 0
+  onlyThisCardAttack: 0
+  healSpell: 0
+  canHeal: 0
+  CardVisual: {fileID: 0}
+  IkonVisual: {fileID: 0}
+  position: 0
+  Zone: []
 --- !u!114 &6099085038265609419
 MonoBehaviour:
   m_ObjectHideFlags: 0

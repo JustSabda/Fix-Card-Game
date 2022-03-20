@@ -7,6 +7,8 @@ TagManager:
   - Clone
   - Deck
   - Zone
+  - CardHand
+  - Units
   layers:
   - Default
   - TransparentFX

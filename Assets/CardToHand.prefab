@@ -408,6 +408,7 @@ MonoBehaviour:
   CardVisual: {fileID: 7325330674331623171}
   IkonVisual: {fileID: 8268429994701866554}
   position: 0
+  Zone: []
 --- !u!114 &7342551462688295090
 MonoBehaviour:
   m_ObjectHideFlags: 0
