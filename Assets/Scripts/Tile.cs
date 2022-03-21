@@ -107,12 +107,21 @@ public class Tile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ID
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        OccupiedUnit = collision.gameObject.GetComponent<BaseUnit>();
-        Debug.Log(collision.gameObject.GetComponent<BaseUnit>());
+        if (collision.GetType() == typeof(CircleCollider2D))
+        {
+            OccupiedUnit = collision.gameObject.GetComponent<BaseUnit>();
+        }
+        
+        //Debug.Log(collision.gameObject.GetComponent<BaseUnit>());
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
-        OccupiedUnit = null;
-        Debug.Log(OccupiedUnit);
+        if (collision.GetType() == typeof(CircleCollider2D))
+        {
+            OccupiedUnit = null;
+        }
+        
+        //Debug.Log(OccupiedUnit);
     }
 }

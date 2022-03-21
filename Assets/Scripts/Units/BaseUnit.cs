@@ -45,15 +45,17 @@ public class BaseUnit : MonoBehaviour
         
         if (GameManager.Instance.State == GameState.PlayerAttackTurn)
         {
-            Debug.Log("UnitMoved : " + OccupiedTile);
-            if (Occupied = true)
+            Debug.Log(Occupied);
+            if (Occupied == false)
             {
+                Debug.Log("UnitMoved : " + OccupiedTile);
                 StartCoroutine(MovePlayer(Vector3.up));
             }
-            
+            //StartCoroutine(MovePlayer(Vector3.up));
+            GameManager.Instance.UpdateGameState(GameState.PlayerDraw);
         }
 
-        GameManager.Instance.UpdateGameState(GameState.PlayerDraw);
+        
     }
     private IEnumerator MovePlayer(Vector3 direction)
     {
@@ -78,15 +80,23 @@ public class BaseUnit : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Units") Occupied = true;
-        Debug.Log(collision.gameObject.name);
-        OccupiedTile = collision.gameObject.GetComponent<Tile>();
+        if (collision.GetType() == typeof(BoxCollider2D))
+        {
+            OccupiedTile = collision.gameObject.GetComponent<Tile>();
+        }
+        //if (collision.gameObject.tag == "Units") Occupied = true;
+        //Debug.Log(collision.gameObject.name);
+        
         //Tile._isWalkable = false;
         //Debug.Log(Tile._isWalkable);
     }
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.tag == "Units") Occupied = false;
-        //Tile._isWalkable = true;
+        if (other.tag == "Units") Occupied = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Units") Occupied = false;
     }
 }
